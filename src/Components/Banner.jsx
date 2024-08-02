@@ -4,7 +4,7 @@ import Service from "./Service";
 function Banner() {
   return (
     <div id="home" className="relative">
-      <div className="absolute bg-[#468585] opacity-85 h-[40vh] lg:h-[65vh] w-[50%] flex items-center">
+      <div className="absolute bg-[#758694]  h-[40vh] lg:h-[65vh] w-[50%] flex items-center">
         <h1 className="text-white drop-shadow-xl text-2xl lg:text-4xl font-bold p-10">
           Best Electrical Services, From Home to Factory.
         </h1>

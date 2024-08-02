@@ -24,7 +24,7 @@ function Service() {
       <div className="flex items-center bg-white border rounded-md shadow-lg p-5 relative">
         {isMobile && (
           <button
-            className="absolute z-30  top-[35%] right-0 bg-[#468585] text-white p-2"
+            className="absolute z-30  top-[35%] right-0 bg-[#758694] text-white p-2"
             onClick={handleSlide}
           >
             &gt;

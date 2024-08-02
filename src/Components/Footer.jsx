@@ -1,7 +1,8 @@
 function Footer() {
   return (
-    <div className="px-5 pt-2 bg-slate-300">
-      <div className="text-xs lg:text-sm">
+    <div className="px-5 pt-2 bg-[#405D72] text-white">
+      <div className="text-sm lg:text-base">
+        <h2 className="font-bold flex justify-center mb-2">Ridho Service</h2>
         <div className="flex gap-2">
           <i className="fa-solid fa-map-pin"></i>
           <p>
@@ -10,7 +11,7 @@ function Footer() {
         </div>
         <div className="flex gap-2">
           <i className="fa-solid fa-phone"></i>
-          <p>(+62) 823-6161-1007</p>
+          <p>(+62) 823-6441-2330</p>
         </div>
         <div className="flex gap-2">
           <i className="fa-solid fa-envelope"></i>
@@ -18,7 +19,7 @@ function Footer() {
         </div>
       </div>
       <p className="text-xs lg:text-sm flex justify-center mt-2">
-        &copy; 2024 ridho service
+        &copy; 2024 ridho service, All Rights Reserved
       </p>
     </div>
   );

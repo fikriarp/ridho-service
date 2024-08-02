@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [windowSroll, setWindowSroll] = useState(false);
   const [navBgActive, setNavBgActive] = useState(null);
   const otherDropdownRef = useRef(null);
   const navActiveRef = useRef(null);
@@ -12,9 +13,22 @@ function Navbar() {
     setHumburger(!humburger);
   };
 
+  const handleWindowScroll = () => {
+    if (window.scrollY > 0) {
+      setWindowSroll(true);
+    } else {
+      setWindowSroll(false);
+    }
+  };
+
   const handleResize = () => {
     setIsMobile(window.innerWidth < 768);
   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleWindowScroll);
+    return () => window.removeEventListener("scroll", handleWindowScroll);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -24,7 +38,7 @@ function Navbar() {
   function NavbarMobile() {
     return (
       <ul
-        className={`bg-[#468585] ${
+        className={`bg-[#405D72] ${
           humburger
             ? "flex items-center flex-col  translate-y-0 transform py-2"
             : "flex items-center flex-col absolute -translate-y-48 -z-10 w-full"
@@ -93,8 +107,12 @@ function Navbar() {
   };
 
   return (
-    <nav className="text-white sticky top-0 z-50 w-full">
-      <div className="bg-[#468585] flex justify-between items-center px-5 h-20">
+    <nav
+      className={`text-white sticky top-0 z-50 w-full ${
+        windowSroll && "shadow-md shadow-black"
+      }`}
+    >
+      <div className="bg-[#405D72] flex justify-between items-center px-5 h-20">
         <div>
           <p>Ridho Service</p>
         </div>
