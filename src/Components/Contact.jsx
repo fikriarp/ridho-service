@@ -3,8 +3,8 @@ function Contact() {
     <div id="contact" className="p-5 bg-[#ef5023] text-white lg:text-lg">
       <h2 className="text-center text-2xl mb-4">Contact Us</h2>
       <p className="text-center mb-6">
-        Ridho Service is always ready to assist you with your electronic repair
-        needs. Feel free to contact us via:
+        Ridho Service selalu siap membantu kebutuhan perbaikan alat listrik
+        Anda. Jangan ragu untuk menghubungi kami melalui:
       </p>
       <div className="flex flex-col md:flex-row items-center justify-center">
         <img
