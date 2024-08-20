@@ -2,7 +2,7 @@ function Footer() {
   return (
     <div className="px-5 pt-2 bg-[#440b0c] text-white">
       <div className="text-sm lg:text-base">
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-3">
           <img src="/logo.png" alt="logo" className="h-10" />
         </div>
 
