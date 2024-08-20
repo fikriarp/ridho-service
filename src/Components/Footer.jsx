@@ -1,8 +1,11 @@
 function Footer() {
   return (
-    <div className="px-5 pt-2 bg-[#405D72] text-white">
+    <div className="px-5 pt-2 bg-[#440b0c] text-white">
       <div className="text-sm lg:text-base">
-        <h2 className="font-bold flex justify-center mb-2">Ridho Service</h2>
+        <div className="w-full flex justify-center">
+          <img src="/logo.png" alt="logo" className="h-10" />
+        </div>
+
         <div className="flex gap-2">
           <i className="fa-solid fa-map-pin"></i>
           <p>

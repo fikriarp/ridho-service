@@ -2,23 +2,24 @@ import { useState, useEffect, useRef } from "react";
 
 function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [windowSroll, setWindowSroll] = useState(false);
-  const [navBgActive, setNavBgActive] = useState(null);
+  const [navState, setNavState] = useState({
+    isScrolled: false,
+    activeSection: null,
+  });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const otherDropdownRef = useRef(null);
   const navActiveRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [humburger, setHumburger] = useState(false);
 
-  const handleHumburger = () => {
-    setHumburger(!humburger);
+  const handleHamburgerToggle = () => {
+    setHamburgerOpen(!hamburgerOpen);
   };
 
   const handleWindowScroll = () => {
-    if (window.scrollY > 0) {
-      setWindowSroll(true);
-    } else {
-      setWindowSroll(false);
-    }
+    setNavState((prevState) => ({
+      ...prevState,
+      isScrolled: window.scrollY > 0,
+    }));
   };
 
   const handleResize = () => {
@@ -27,159 +28,110 @@ function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleWindowScroll);
-    return () => window.removeEventListener("scroll", handleWindowScroll);
-  }, []);
-
-  useEffect(() => {
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleWindowScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  function NavbarMobile() {
-    return (
-      <ul
-        className={`bg-[#405D72] ${
-          humburger
-            ? "flex items-center flex-col  translate-y-0 transform py-2"
-            : "flex items-center flex-col absolute -translate-y-48 -z-10 w-full"
-        }`}
-      >
-        <li
-          className={
-            navBgActive === "home"
-              ? "border-b-2 transform duration-300 p-2"
-              : "p-2"
-          }
-          ref={navActiveRef}
-        >
-          <a href="#home" onClick={() => handleNavClick("home")}>
-            Home
-          </a>
-        </li>
-        <li
-          className={
-            navBgActive === "about"
-              ? "border-b-2 transform duration-300 p-2"
-              : "p-2"
-          }
-          ref={navActiveRef}
-        >
-          <a href="#about" onClick={() => handleNavClick("about")}>
-            About
-          </a>
-        </li>
-        <li
-          className={
-            navBgActive === "contact"
-              ? "border-b-2 transform duration-300 p-2"
-              : "p-2"
-          }
-        >
-          <a
-            href="#contact"
-            onClick={() => handleNavClick("contact")}
-            className="cursor-pointer"
-            ref={navActiveRef}
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
-    );
-  }
+  const handleClickOutside = (event) => {
+    if (
+      otherDropdownRef.current &&
+      !otherDropdownRef.current.contains(event.target)
+    ) {
+      setOpenDropdown(null);
+    }
+  };
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        otherDropdownRef.current &&
-        !otherDropdownRef.current.contains(event.target)
-      ) {
-        setOpenDropdown(null);
-      }
-    }
-
     window.addEventListener("click", handleClickOutside);
     return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
   const handleNavClick = (section) => {
-    setNavBgActive((prevSection) => (prevSection === section ? null : section));
+    setNavState((prevState) => ({
+      ...prevState,
+      activeSection: prevState.activeSection === section ? null : section,
+    }));
   };
+
+  function NavbarMobile() {
+    return (
+      <ul
+        className={`bg-[#440b0c] ${
+          hamburgerOpen
+            ? "flex items-center flex-col translate-y-0 transform py-2"
+            : "absolute -translate-y-48 -z-10 w-full"
+        }`}
+      >
+        {["home", "about", "contact"].map((section) => (
+          <li
+            key={section}
+            className={`p-2 ${
+              navState.activeSection === section
+                ? "border-b-2 transform duration-300"
+                : ""
+            }`}
+            ref={navActiveRef}
+          >
+            <a href={`#${section}`} onClick={() => handleNavClick(section)}>
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   return (
     <nav
       className={`text-white sticky top-0 z-50 w-full ${
-        windowSroll && "shadow-md shadow-black"
+        navState.isScrolled && "shadow-md shadow-black"
       }`}
     >
-      <div className="bg-[#405D72] flex justify-between items-center px-5 h-20">
+      <div className="bg-[#440b0c] flex justify-between items-center px-5 h-20">
         <div>
-          <p>Ridho Service</p>
+          <img src="/logo.png" alt="logo" className="h-10" />
         </div>
         <ul className="lg:flex md:flex hidden gap-4 ">
-          <li
-            className={
-              navBgActive === "home"
-                ? "border-b-2 transform duration-300 p-2"
-                : "p-2"
-            }
-            ref={navActiveRef}
-          >
-            <a href="#home" onClick={() => handleNavClick("home")}>
-              Home
-            </a>
-          </li>
-          <li
-            className={
-              navBgActive === "about"
-                ? "border-b-2 transform duration-300 p-2"
-                : "p-2"
-            }
-            ref={navActiveRef}
-          >
-            <a href="#about" onClick={() => handleNavClick("about")}>
-              About
-            </a>
-          </li>
-          <li
-            className={
-              navBgActive === "contact"
-                ? "border-b-2 transform duration-300 p-2"
-                : "p-2"
-            }
-          >
-            <a
-              href="#contact"
-              onClick={() => handleNavClick("contact")}
-              className="cursor-pointer"
+          {["home", "about", "contact"].map((section) => (
+            <li
+              key={section}
+              className={`p-2 ${
+                navState.activeSection === section
+                  ? "border-b-2 transform duration-300"
+                  : ""
+              }`}
               ref={navActiveRef}
             >
-              Contact
-            </a>
-          </li>
+              <a href={`#${section}`} onClick={() => handleNavClick(section)}>
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* humburger */}
+        {/* Hamburger */}
         {isMobile && (
           <div
-            className={`cursor-pointer ${
-              humburger ? "" : "gap-1 flex flex-col"
-            }`}
-            onClick={handleHumburger}
+            className="cursor-pointer flex flex-col gap-1"
+            onClick={handleHamburgerToggle}
+            aria-expanded={hamburgerOpen}
           >
             <div
               className={`w-5 h-1 bg-white transition-transform duration-300 ${
-                humburger ? "rotate-45 translate-y-[5px]" : ""
+                hamburgerOpen ? "rotate-45 translate-y-[5px]" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-5 h-1 bg-white transition-opacity duration-300 ${
+                hamburgerOpen ? "opacity-0" : ""
               }`}
             ></div>
             <div
               className={`w-5 h-1 bg-white transition-transform duration-300 ${
-                humburger ? "opacity-0" : ""
-              }`}
-            ></div>
-            <div
-              className={`w-5 h-1 bg-white transition-transform duration-300 ${
-                humburger ? "-rotate-45 -translate-y-[3px]" : ""
+                hamburgerOpen ? "-rotate-45 -translate-y-[3px]" : ""
               }`}
             ></div>
           </div>

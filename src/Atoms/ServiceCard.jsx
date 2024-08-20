@@ -26,9 +26,15 @@ function ServiceCard({ status, detail, img, colorStatus }) {
         <div className={`w-2 h-2 rounded-full ${colorStatus}`}></div>
         <h2 className="">{status}</h2>
       </div>
-      <img src={img} alt="no Img" className="lg:w-60 w-48 rounded-md" />
-      <div className="absolute top-20 bg-[#758694]">
-        <p className=" text-white font-bold p-2 drop-shadow-2xl">{detail}</p>
+      <div className="fit-content">
+        <img
+          src={img}
+          alt="no Img"
+          className="lg:w-60 w-48 h-48 object-cover rounded-md"
+        />
+      </div>
+      <div className="absolute top-20 bg-[#ef5023]">
+        <p className="text-white font-bold p-2 drop-shadow-2xl">{detail}</p>
       </div>
     </div>
   );

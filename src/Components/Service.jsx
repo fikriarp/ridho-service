@@ -24,16 +24,22 @@ function Service() {
       <div className="flex items-center bg-white border rounded-md shadow-lg p-5 relative">
         {isMobile && (
           <button
-            className="absolute z-30  top-[35%] right-0 bg-[#758694] text-white p-2"
+            className="absolute z-30  top-[35%] right-0 bg-[#ef5023] text-white p-2"
             onClick={handleSlide}
           >
             &gt;
           </button>
         )}
 
-        <div className={isMobile ? "flex flex-col w-[100%]" : "flex flex-col"}>
+        <div
+          className={
+            isMobile
+              ? "flex flex-col w-[100%] lg:text-lg"
+              : "flex flex-col lg:text-lg"
+          }
+        >
           <h2 className="font-semibold ">MY Service</h2>
-          <p>Lorem ipsum dal ekda wakn</p>
+          <p>Kami Siap Perbaiki</p>
         </div>
         <div
           className={isMobile ? "overflow-hidden relative" : "relative w-full"}

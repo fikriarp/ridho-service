@@ -1,46 +1,52 @@
 function About() {
   return (
-    <div id="about" className="relative lg:mt-28 flex items-center bg-white">
+    <div
+      id="about"
+      className="relative lg:mt-28 flex items-center bg-white text-white lg:text-lg"
+    >
       <div className="flex flex-col px-5 mt-16 lg:py-5 pt-40 lg:pt-0 lg:flex-row lg:justify-between lg:items-center">
         <div className="mb-5 lg:w-[60vw] flex flex-col gap-2">
-          <div className="bg-yellow-200 shadow-lg p-5 border rounded-md">
-            <h2 className="mb-3">About Ridho Service</h2>
+          <div className="bg-[#ef5023] shadow-lg p-5 border rounded-md">
+            <h2 className="mb-3 font-semibold">Tentang Ridho Service</h2>
             <p>
-              Ridho Service is a company specializing in servicing and repairing
-              household electronics and industrial equipment. Established in
-              2005, Ridho Service has become a trusted partner for individual
-              and corporate clients, ensuring their electrical devices function
-              optimally.
+              Ridho Service adalah perusahaan yang bergerak di bidang pelayanan
+              dan perbaikan peralatan elektronik rumah tangga dan peralatan
+              industri. Didirikan pada tahun 1996, Ridho Service telah menjadi
+              mitra terpercaya bagi pelanggan individu maupun industri,
+              memastikan perangkat listrik mereka berfungsi secara optimal.
             </p>
           </div>
-          <div className="bg-yellow-200 shadow-lg p-5 border rounded-md">
-            <h3 className="mb-3">Our Vision</h3>
+          <div className="bg-[#ef5023] shadow-lg p-5 border rounded-md">
+            <h3 className="mb-3 font-semibold">Visi Kami</h3>
             <p>
-              We aim to be the leading provider of electrical service and
-              repair, known for reliability, quality, and excellent customer
-              service. With a dedication to innovation and continuous
-              improvement, we are committed to delivering effective and
-              efficient solutions for all your electronic needs.
+              Kami bertujuan untuk menjadi penyedia layanan dan perbaikan
+              peralatan listrik terdepan, dikenal karena keandalan, kualitas,
+              dan layanan pelanggan yang luar biasa. Dengan dedikasi terhadap
+              inovasi dan perbaikan berkelanjutan, kami berkomitmen untuk
+              memberikan solusi yang efektif dan efisien untuk semua kebutuhan
+              elektronik Anda.
             </p>
           </div>
-          <div className="bg-yellow-200 shadow-lg p-5 border rounded-md">
-            <h3 className="mb-3">Our Mission</h3>
+          <div className="bg-[#ef5023] shadow-lg p-5 border rounded-md">
+            <h3 className="mb-3 font-semibold">Misi Kami</h3>
             <ul className="list-disc">
               <li>
-                Best Service: Providing fast, accurate, and friendly repair
-                services for household and industrial clients.
+                Pelayanan Terbaik: Memberikan layanan perbaikan yang cepat,
+                akurat, dan ramah untuk pelanggan rumah tangga dan industri.
               </li>
               <li>
-                Superior Quality: Using high-quality spare parts and the latest
-                technology to ensure durable repair results.
+                Kualitas Unggul: Menggunakan suku cadang berkualitas tinggi dan
+                teknologi terbaru untuk memastikan hasil perbaikan yang tahan
+                lama.
               </li>
               <li>
-                Reliability: Building trust with customers through transparency,
-                honesty, and professionalism in every aspect of our service.
+                Keandalan: Membangun kepercayaan dengan pelanggan melalui
+                transparansi, kejujuran, dan profesionalisme dalam setiap aspek
+                layanan kami.
               </li>
               <li>
-                Environmental Commitment: Supporting eco-friendly practices by
-                promoting repair and reuse of electrical devices.
+                Komitmen Lingkungan: Mendukung praktik ramah lingkungan dengan
+                mempromosikan perbaikan dan penggunaan ulang perangkat listrik.
               </li>
             </ul>
           </div>
