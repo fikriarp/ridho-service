@@ -113,9 +113,9 @@ function Navbar() {
       }`}
     >
       <div className="bg-[#440b0c] flex justify-between items-center px-5 h-20">
-        <div>
+        <a href="/">
           <img src="/logo.png" alt="logo" className="h-10" />
-        </div>
+        </a>
         <ul className="lg:flex md:flex hidden gap-4 ">
           <li
             className={
