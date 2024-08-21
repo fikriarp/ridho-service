@@ -38,11 +38,11 @@ function Navbar() {
   function NavbarMobile() {
     return (
       <ul
-        className={`bg-[#440b0c00] ${
+        className={` ${
           humburger
             ? "flex items-center flex-col  translate-y-0 transform py-2"
             : "flex items-center flex-col absolute -translate-y-48 -z-10 w-full"
-        }`}
+        } ${windowSroll ? "text-[#440b0c]" : "text-white"}`}
       >
         <li
           className={
@@ -109,7 +109,7 @@ function Navbar() {
   return (
     <nav
       className={`text-white sticky top-0 z-50 w-full ${
-        windowSroll ? "shadow-md shadow-black bg-[#440b0c7c]" : "bg-[#440b0c]"
+        windowSroll ? "shadow-md shadow-black bg-[#ffffffde]" : "bg-[#440b0c]"
       }`}
     >
       <div className=" flex justify-between items-center px-5 h-20">
@@ -176,17 +176,23 @@ function Navbar() {
             onClick={handleHumburger}
           >
             <div
-              className={`w-5 h-1 bg-white transition-transform duration-300 ${
+              className={`w-5 h-1 ${
+                windowSroll ? "bg-[#440b0c]" : "bg-white"
+              }  transition-transform duration-300 ${
                 humburger ? "rotate-45 translate-y-[5px]" : ""
               }`}
             ></div>
             <div
-              className={`w-5 h-1 bg-white transition-transform duration-300 ${
+              className={`w-5 h-1 ${
+                windowSroll ? "bg-[#ef5023]" : "bg-white"
+              } transition-transform duration-300 ${
                 humburger ? "opacity-0" : ""
               }`}
             ></div>
             <div
-              className={`w-5 h-1 bg-white transition-transform duration-300 ${
+              className={`w-5 h-1 ${
+                windowSroll ? "bg-[#440b0c]" : "bg-white"
+              } transition-transform duration-300 ${
                 humburger ? "-rotate-45 -translate-y-[3px]" : ""
               }`}
             ></div>
