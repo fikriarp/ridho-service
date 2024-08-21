@@ -108,8 +108,8 @@ function Navbar() {
 
   return (
     <nav
-      className={`text-white sticky top-0 z-50 w-full bg-[#440b0c] ${
-        windowSroll && "shadow-md shadow-black bg-[#440b0c7c]"
+      className={`text-white sticky top-0 z-50 w-full ${
+        windowSroll ? "shadow-md shadow-black bg-[#440b0c7c]" : "bg-[#440b0c]"
       }`}
     >
       <div className=" flex justify-between items-center px-5 h-20">
