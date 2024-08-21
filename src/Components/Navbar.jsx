@@ -38,7 +38,7 @@ function Navbar() {
   function NavbarMobile() {
     return (
       <ul
-        className={`bg-[#440b0c] ${
+        className={`bg-[#440b0c00] ${
           humburger
             ? "flex items-center flex-col  translate-y-0 transform py-2"
             : "flex items-center flex-col absolute -translate-y-48 -z-10 w-full"
@@ -108,13 +108,21 @@ function Navbar() {
 
   return (
     <nav
-      className={`text-white sticky top-0 z-50 w-full ${
-        windowSroll && "shadow-md shadow-black"
+      className={`text-white sticky top-0 z-50 w-full bg-[#440b0c] ${
+        windowSroll && "shadow-md shadow-black bg-[#440b0c7c]"
       }`}
     >
-      <div className="bg-[#440b0c] flex justify-between items-center px-5 h-20">
+      <div className=" flex justify-between items-center px-5 h-20">
         <a href="/">
-          <img src="/logo.png" alt="logo" className="h-10" />
+          {windowSroll ? (
+            <img
+              src="/logo-warna.png"
+              alt="logo"
+              className="h-10 drop-shadow-md"
+            />
+          ) : (
+            <img src="/logo.png" alt="logo" className="h-10 drop-shadow-md" />
+          )}
         </a>
         <ul className="lg:flex md:flex hidden gap-4 ">
           <li
