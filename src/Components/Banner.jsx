@@ -4,8 +4,8 @@ import Service from "./Service";
 function Banner() {
   return (
     <div id="home" className="relative">
-      <div className="absolute bg-[#ef5023]  h-[40vh] lg:h-[65vh] w-[50%] flex items-center text-center lg:text-left">
-        <h1 className="text-white drop-shadow-xl text-lg md:text-2xl lg:text-4xl font-bold p-10">
+      <div className="absolute bg-[#ef5023]  h-[40vh] lg:h-[65vh] w-[50%] flex items-center text-left">
+        <h1 className="text-white drop-shadow-xl text-lg md:text-2xl lg:text-4xl font-bold p-2 lg:p-10">
           Pelayanan Perbaikan Alat Listrik Terbaik, Dari Rumah Hingga Pabrik.
         </h1>
       </div>
